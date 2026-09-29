@@ -1,6 +1,7 @@
 [
-  {"id": 1, "name": "Docker", "category": "Containerization"},
-  {"id": 2, "name": "Kubernetes", "category": "Orchestration"},
-  {"id": 3, "name": "Jenkins", "category": "CI/CD"},
-  {"id": 4, "name": "Terraform", "category": "Infrastructure as Code"}
+  {"id": 1, "name": "Docker", "category": "Containers", "level": "Beginner"},
+  {"id": 2, "name": "Kubernetes", "category": "Orchestration", "level": "Intermediate"},
+  {"id": 3, "name": "Jenkins", "category": "CI/CD", "level": "Beginner"},
+  {"id": 4, "name": "Terraform", "category": "Infrastructure as Code", "level": "Intermediate"},
+  {"id": 5, "name": "AWS", "category": "Cloud", "level": "Beginner"}
 ]
