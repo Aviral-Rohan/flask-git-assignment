@@ -57,5 +57,22 @@ def success():
     return render_template("success.html")
 
 
+# ---------- Task 3 (master_2): To-Do backend API ----------
+@app.route("/submittodoitem", methods=["POST"])
+def submit_todo_item():
+    data = request.get_json(silent=True) or request.form
+    item_name = data.get("itemName", "").strip()
+    item_description = data.get("itemDescription", "").strip()
+
+    if not item_name or not item_description:
+        return jsonify({"error": "itemName and itemDescription are required"}), 400
+    try:
+        todos = get_collection().database["todos"]
+        result = todos.insert_one({"itemName": item_name, "itemDescription": item_description})
+        return jsonify({"message": "To-Do item saved successfully", "id": str(result.inserted_id)}), 201
+    except (PyMongoError, RuntimeError) as e:
+        return jsonify({"error": str(e)}), 500
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
