@@ -32,6 +32,12 @@ def api():
     return jsonify(data)
 
 
+# ---------- Task 3 (master_1): To-Do page ----------
+@app.route("/todo")
+def todo():
+    return render_template("todo.html")
+
+
 # ---------- Task 2: Form that saves to MongoDB Atlas ----------
 @app.route("/", methods=["GET", "POST"])
 def form():
